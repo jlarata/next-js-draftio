@@ -20,8 +20,28 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.smZorak {
+  display: none;
+}
+
+@media (max-width: 760px)
+{
+  .destkopLogo {
+    display: none;
+  }
+
+  .smZorak {
+    display:block
+  }
+
+  .mdZorak {
+    display: none;
   }
 }

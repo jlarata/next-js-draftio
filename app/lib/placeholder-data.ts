@@ -1,4 +1,4 @@
-/* const players = [
+const players = [
     {
         id : 200,
         nick : "Ariel",
@@ -78,4 +78,4 @@ const games = [
         match3 : 0,
         result : 2,
     }
-] */
+]

@@ -1,19 +1,21 @@
 import Image from "next/image";
 import d3cimg from '../public/d3cimg.jpg';
+import { inter } from "./ui/fonts";
 
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
-          className="dark:invert"
+          className="destkopLogo self-center"
           src={d3cimg}
           alt="d3c logo"
-          width={180}
-          height={38}
+          width={480}
           priority
         />
-        <h1 className="text-center sm:text-left font-[family-name:var(--font-geist-mono)]">holi</h1>
+        <h1 className="text-center sm:text-left font-[family-name:var(--font-geist-mono)]">esto usa font geist-mono</h1>
+        <h2 className={`${inter.className}`}>esto está con font inter</h2>
+        <div>los botones están en geist-sans (esto también, porque está en classname del main)</div>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
