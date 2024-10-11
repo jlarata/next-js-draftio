@@ -1,21 +1,21 @@
 const players = [
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442a',
+        id : '00000000-0000-0000-0000-000000000100',
         nick : 'Ariel',
         password : '1234'
     },
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442b',
+        id : '00000000-0000-0000-0000-000000000101',
         nick : 'Lautaro',
         password : '1234'
     },
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442c',
+        id : '00000000-0000-0000-0000-000000000102',
         nick : 'Leo',
         password : '1234'
     },
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442d',
+        id : '00000000-0000-0000-0000-000000000103',
         nick : 'Pablo',
         password : '1234'
     }
@@ -23,7 +23,7 @@ const players = [
 
 const leagues = [
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442e',
+        id : '00000000-0000-0000-0000-000000000200',
         name : 'discordfyl',
         password : '1234'
     }
@@ -31,7 +31,7 @@ const leagues = [
 
 const tournaments = [
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442f',
+        id : '00000000-0000-0000-0000-000000000300',
         leagueId : leagues[0].id,
         name : 'draft01'
     }
@@ -40,40 +40,40 @@ const tournaments = [
 const games = [
     
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442g',
-        tournamentId : '3958dc9e-742f-4377-85e9-fec4b6a6442z',
-        player1 : '200',
-        player2 : '201',
+        id : '00000000-0000-0000-0000-000000000400',
+        tournamentId : tournaments[0].id,
+        player1 : players[0].id,
+        player2 : players[1].id,
         match1 : '1',
         match2 : '2',
         match3 : '1',
         result : '1',
     },
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442h',
-        tournamentId : '3958dc9e-742f-4377-85e9-fec4b6a6442y',
-        player1 : '202',
-        player2 : '203',
+        id : '00000000-0000-0000-0000-000000000401',
+        tournamentId : tournaments[0].id,
+        player1 : players[2].id,
+        player2 : players[3].id,
         match1 : '1',
         match2 : '1',
         match3 : 'null',
         result : '1',
     },
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442i',
-        tournamentId : '3958dc9e-742f-4377-85e9-fec4b6a6442x',
-        player1 : '200',
-        player2 : '202',
+        id : '00000000-0000-0000-0000-000000000403',
+        tournamentId : tournaments[0].id,
+        player1 : players[0].id,
+        player2 : players[2].id,
         match1 : '2',
         match2 : '1',
         match3 : '1',
         result : '1',
     },
     {
-        id : '3958dc9e-742f-4377-85e9-fec4b6a6442aj',
-        tournamentId : '3958dc9e-742f-4377-85e9-fec4b6a6442w',
-        player1 : '201',
-        player2 : '203',
+        id : '00000000-0000-0000-0000-000000000404',
+        tournamentId : tournaments[0].id,
+        player1 : players[1].id,
+        player2 : players[3].id,
         match1 : '2',
         match2 : '1',
         match3 : '0',
