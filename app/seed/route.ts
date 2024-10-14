@@ -57,16 +57,16 @@ async function seedTournaments() {
    await client.sql`
      CREATE TABLE IF NOT EXISTS tournaments (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
       leagueId UUID NOT NULL,
+      name VARCHAR(255) NOT NULL
      );
    `;
 
    const insertedTournaments = await Promise.all(
      tournaments.map(
        (tournament) => client.sql`
-         INSERT INTO tournaments (id, name, leagueId)
-         VALUES (${tournament.id}, ${tournament.name}, ${tournament.leagueId})
+         INSERT INTO tournaments (id, leagueId, name)
+         VALUES (${tournament.id}, ${tournament.leagueId}, ${tournament.name})
          ON CONFLICT (id) DO NOTHING;
        `,
      ),
@@ -85,10 +85,10 @@ async function seedGame() {
     tournamentId UUID NOT NULL,
     player1 UUID NOT NULL,
     player2 UUID NOT NULL,
-    match1 VARCHAR(255) NOT NULL, 
-    match2 VARCHAR(255) NOT NULL, 
-    match3 VARCHAR(255), 
-    result VARCHAR(255) NOT NULL
+    match1 SMALLINT, 
+    match2 SMALLINT, 
+    match3 SMALLINT, 
+    result SMALLINT
      );
    `; 
   const insertedGame = await Promise.all(
