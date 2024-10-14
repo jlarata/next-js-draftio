@@ -32,7 +32,8 @@ const leagues = [
 const tournaments = [
     {
         id : '00000000-0000-0000-0000-000000000300',
-        leagueId : leagues[0].id,
+        leagueid : leagues[0].id,
+        date: '2024-10-06',
         name : 'draft01'
     }
 ]
@@ -41,7 +42,7 @@ const games = [
     
     {
         id : '00000000-0000-0000-0000-000000000400',
-        tournamentId : tournaments[0].id,
+        tournamentid : tournaments[0].id,
         player1 : players[0].id,
         player2 : players[1].id,
         match1 : 1,
@@ -52,7 +53,7 @@ const games = [
     ,
     {
         id : '00000000-0000-0000-0000-000000000401',
-        tournamentId : tournaments[0].id,
+        tournamentid : tournaments[0].id,
         player1 : players[2].id,
         player2 : players[3].id,
         match1 : 1,
@@ -62,7 +63,7 @@ const games = [
     },
     {
         id : '00000000-0000-0000-0000-000000000403',
-        tournamentId : tournaments[0].id,
+        tournamentid : tournaments[0].id,
         player1 : players[0].id,
         player2 : players[2].id,
         match1 : 2,
@@ -72,7 +73,7 @@ const games = [
     },
     {
         id : '00000000-0000-0000-0000-000000000404',
-        tournamentId : tournaments[0].id,
+        tournamentid : tournaments[0].id,
         player1 : players[1].id,
         player2 : players[3].id,
         match1 : 2,
