@@ -69,11 +69,12 @@ export const generateYAxis = (games: Game[], tournaments: Tournament[]) => {
 )});
 
   const highestRecord = Math.max(...months.map(month => month.games));
-  const topLabel = Math.ceil(highestRecord / 1000) * 500;
-  //deberia ser *1000 probablemente, lo pongo en 500 para q se vea mejor ahora
+  const topLabel = highestRecord;
+  //const topLabel = Math.ceil(highestRecord / 1000) * 1000;
+  //console.log(highestRecord);
 
-  for (let i = topLabel; i >= 0; i -= 1000) {
-    yAxisLabels.push(`$${i / 1000}K`);
+  for (let i = topLabel; i >= 0; i -= 1) {
+    yAxisLabels.push(`${i}`);
   }
 
   return { yAxisLabels, topLabel, months };

@@ -3,7 +3,7 @@ import { unstable_noStore as noStore} from 'next/cache';
 import { players, games, tournaments, leagues } from './placeholder-data';
 import { formatCurrency } from './utils';
 import { Game, Tournament } from './definitions';
-import { Revenue, CustomersTableType, LatestInvoice, LatestInvoiceRaw, InvoiceForm, InvoicesTable, CustomerField } from './definitions';
+import { Revenue, CustomersTableType, LatestGames, LatestInvoice, LatestInvoiceRaw, InvoiceForm, InvoicesTable, CustomerField } from './definitions';
 
 export async function fetchRevenue() {
   try {
@@ -27,7 +27,6 @@ export async function fetchRevenue() {
 export async function fetchGames() {
   noStore();
   try {
-
     const data = await sql<Game>`SELECT * FROM games`;
 
     //console.log(data.rows)
@@ -47,6 +46,84 @@ export async function fetchTournaments() {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch tournaments data.');
+  }
+}
+
+export async function fetchLatestGames() {
+  noStore();
+  try {
+    const data = await sql<LatestGames>`
+      SELECT
+
+g.id AS id, l.name AS league, t.name AS tournament,
+
+TO_CHAR(t.date, 'dd/mm/yyyy') AS date,
+
+(SELECT p.nick FROM players p WHERE p.id = g.player1)
+AS Player1,
+
+(SELECT p.nick FROM players p WHERE p.id = g.player2)
+AS Player2,
+
+CASE
+WHEN g.match1 = '1' THEN
+(SELECT p.nick FROM players p WHERE p.id = g.player1)
+WHEN g.match1 = '2' THEN
+(SELECT p.nick FROM players p WHERE p.id = g.player2)
+WHEN g.match1 = '0' THEN 'Tie'
+WHEN g.match1 = null THEN 'nope'
+END AS Match1,
+
+CASE
+WHEN g.match2 = '1' THEN
+(SELECT p.nick FROM players p WHERE p.id = g.player1)
+WHEN g.match2 = '2' THEN
+(SELECT p.nick FROM players p WHERE p.id = g.player2)
+WHEN g.match2 = '0' THEN 'Tie'
+WHEN g.match2 = null THEN 'nope'
+END AS Match2,
+
+CASE
+WHEN g.match3 = '1' THEN
+(SELECT p.nick FROM players p WHERE p.id = g.player1)
+WHEN g.match3 = '2' THEN
+(SELECT p.nick FROM players p WHERE p.id = g.player2)
+WHEN g.match3 = '0' THEN 'Tie'
+WHEN g.match3 = null THEN 'nope'
+END AS Match3,
+
+
+CASE
+WHEN g.result = '1' THEN
+(SELECT p.nick FROM players p WHERE p.id = g.player1)
+WHEN g.result = '2' THEN
+(SELECT p.nick FROM players p WHERE p.id = g.player2)
+WHEN g.result = '0' THEN 'Tie'
+WHEN g.result = null THEN 'nope'
+END AS Result
+
+FROM games g
+INNER JOIN
+players p
+ON (g.player1 = p.id)
+INNER JOIN
+tournaments t
+ON (g.tournamentid = t.id)
+INNER JOIN
+leagues l
+ON (t.leagueid = l.id)
+
+ORDER BY
+t.date DESC
+
+limit 10;`;
+
+    const latestGames = data.rows;
+    //console.log(data.rows);
+    return latestGames;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch the latest games.');
   }
 }
 

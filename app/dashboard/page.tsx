@@ -4,6 +4,7 @@ import { Card } from './cards';
 //import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { inter } from '@/app/ui/fonts';
 import GamesChart from './games-chart';
+import LatestGames from './latestGames';
  
 export default async function Page() {
   
@@ -24,11 +25,9 @@ export default async function Page() {
         /> */}
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        {/*<WinsChart games={games}/>*/}
-        {/* <GamesChart cosos={cosos}/> */}
-
         <GamesChart />
         {/* <RevenueChart revenue={revenue}  /> */}
+        <LatestGames />
         {/* <LatestInvoices latestInvoices={latestInvoices} /> */}
       </div>
     </main>

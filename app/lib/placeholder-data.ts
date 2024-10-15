@@ -160,25 +160,25 @@ const games = [
     },
     {
         id : '00000000-0000-0000-0000-000000000408',
-        tournamentid : tournaments[1].id,
-        player1 : players[6].id,
-        player2 : players[7].id,
-        match1 : 2,
+        tournamentid : tournaments[0].id,
+        player1 : players[4].id,
+        player2 : players[10].id,
+        match1 : 1,
         match2 : 1,
-        match3 : 0,
-        result : 2,
+        match3 : null,
+        result : 1,
     },
     {
         id : '00000000-0000-0000-0000-000000000409',
-        tournamentid : tournaments[1].id,
-        player1 : players[0].id,
-        player2 : players[2].id,
+        tournamentid : tournaments[0].id,
+        player1 : players[4].id,
+        player2 : players[11].id,
         match1 : 1,
-        match2 : 2,
-        match3 : 1,
+        match2 : 1,
+        match3 : null,
         result : 1,
     }
-    ,
+    /* ,
     {
         id : '00000000-0000-0000-0000-000000000410',
         tournamentid : tournaments[1].id,
@@ -289,7 +289,7 @@ const games = [
         match2 : 2,
         match3 : 1,
         result : 1,
-    }
+    } */
 ]
 
 export {players, leagues, tournaments, games}

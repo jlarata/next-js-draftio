@@ -32,13 +32,26 @@ export type Game =
         result : 0 | 1 | 2 | null,
     }
 
-    //eliminar todas estas luego
+export type LatestGames = {
+  id: string;
+  league: string;
+  tournament: string;
+  date: string;
+  player1: string;
+  player2: string;
+  match1 : 0 | 1 | 2 | null,
+  match2 : 0 | 1 | 2 | null,
+  match3 : 0 | 1 | 2 | null,
+  result : 0 | 1 | 2 | null,
+};
+
+//eliminar todas estas luego
 export type Revenue = {
     month: string;
     revenue: number;
     };
 
-    export type LatestInvoice = {
+export type LatestInvoice = {
   id: string;
   name: string;
   image_url: string;
