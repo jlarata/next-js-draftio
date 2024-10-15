@@ -14,7 +14,7 @@ async function seedPlayers() {
        password TEXT NOT NULL
      );
    `;
-
+   console.log('players table created');
    const insertedPlayers = await Promise.all(
      players.map(async (player) => {
       const hashedPassword = await bcrypt.hash(player.password, 10);
@@ -38,6 +38,7 @@ async function seedLeagues() {
        password TEXT NOT NULL
      );
    `;
+   console.log('leagues table created');
 
    const insertedLeagues = await Promise.all(
      leagues.map(async (league) => {
@@ -62,6 +63,8 @@ async function seedTournaments() {
       name VARCHAR(255) NOT NULL
      );
    `;
+
+   console.log('tournaments table created');
 
    const insertedTournaments = await Promise.all(
      tournaments.map(
@@ -92,6 +95,9 @@ async function seedGame() {
     result SMALLINT
      );
    `; 
+
+   console.log('games  table created');
+   
   const insertedGame = await Promise.all(
      games.map(
        (game) => client.sql`
@@ -119,10 +125,8 @@ async function seedGame() {
       drop TABLE IF EXISTS leagues;
       `;
       await client.sql`COMMIT`;
-    
-      return '4 tables dropped succesfully'
-
-
+      
+    console.log('4 tables dropped succesfully');
  }
 
 export async function GET() {

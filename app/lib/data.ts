@@ -1,4 +1,5 @@
 import { sql } from '@vercel/postgres';
+import { unstable_noStore as noStore} from 'next/cache';
 import { players, games, tournaments, leagues } from './placeholder-data';
 import { formatCurrency } from './utils';
 import { Game, Tournament } from './definitions';
@@ -24,6 +25,7 @@ export async function fetchRevenue() {
 }
 
 export async function fetchGames() {
+  noStore();
   try {
 
     const data = await sql<Game>`SELECT * FROM games`;
@@ -37,10 +39,10 @@ export async function fetchGames() {
 }
 
 export async function fetchTournaments() {
+  noStore();
   try {
-
     const data = await sql<Tournament>`SELECT * FROM tournaments`;
-
+    //console.log(data.rows);
     return data.rows;
   } catch (error) {
     console.error('Database Error:', error);

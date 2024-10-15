@@ -17,6 +17,7 @@ export default async function GamesChart(){
 
   const chartHeight = 350;
   const { yAxisLabels, topLabel, months } = generateYAxis(games, tournaments);
+  
 
   if (!games || games.length === 0) {
   return <p className="mt-4 text-gray-400">No data available.</p>;
