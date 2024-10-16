@@ -28,7 +28,7 @@ export const formatDateToLocal = (
 export const generateLast12Months = () => {
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
-  const helpArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const helpArray = [];
 
     let currenMonthVariable = currentMonth+1;
     for (let i=11; i>=0; i--) {
