@@ -33,10 +33,10 @@ export default async function LatestGames() {
                       {game.league} <span className=' font-normal'>| {game.tournament} ({game.date})</span>
                     </p>
                     
-                    <p className="hidden text-sm text-gray-500 sm:block">
+                    <p className="hidden text-sm text-gray-700 sm:block">
                       {game.player1} vs {game.player2}
                     </p>
-                    <p className="hidden text-sm text-gray-500 sm:block">
+                    <p className="hidden text-sm text-gray-700 sm:block">
                       m1: {game.match1} | m2: {game.match2} | m3: {game.match3} 
                     </p>
                   </div>
