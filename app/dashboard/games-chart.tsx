@@ -1,4 +1,4 @@
-import { generateYAxis } from '@/app/lib/utils';
+import { generateYAxis, generateLast12Months } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { inter } from '@/app/ui/fonts';
 import { Game, Tournament } from '@/app/lib/definitions';
@@ -15,8 +15,9 @@ const tournaments = await fetchTournaments();
 
 export default async function GamesChart(){
 
+  const last12Months = generateLast12Months();
   const chartHeight = 350;
-  const { yAxisLabels, topLabel, months } = generateYAxis(games, tournaments);
+  const { yAxisLabels, topLabel} = generateYAxis(games, tournaments, last12Months);
   
 
   if (!games || games.length === 0) {
@@ -40,7 +41,7 @@ export default async function GamesChart(){
             ))}
           </div>
 
-          {months.map((month) => (
+          {last12Months.map((month) => (
             <div key={month.month} className="flex flex-col items-center gap-2">
               <div
                 className="w-full rounded-md bg-green-300"
