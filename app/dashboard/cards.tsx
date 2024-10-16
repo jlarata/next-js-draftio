@@ -1,16 +1,16 @@
 import {
-    BanknotesIcon,
-    ClockIcon,
+    PuzzlePieceIcon,
     UserGroupIcon,
-    InboxIcon,
+    TrophyIcon,
+    TableCellsIcon
   } from '@heroicons/react/24/outline';
   import { inter } from '@/app/ui/fonts';
   
   const iconMap = {
-    collected: BanknotesIcon,
-    customers: UserGroupIcon,
-    pending: ClockIcon,
-    invoices: InboxIcon,
+    games: PuzzlePieceIcon,
+    players: UserGroupIcon,
+    leagues: TableCellsIcon,
+    tournaments: TrophyIcon,
   };
   
   export default async function CardWrapper() {
@@ -37,7 +37,7 @@ import {
   }: {
     title: string;
     value: number | string;
-    type: 'invoices' | 'customers' | 'pending' | 'collected';
+    type: 'games' | 'players' | 'leagues' | 'tournaments';
   }) {
     const Icon = iconMap[type];
   

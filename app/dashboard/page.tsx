@@ -5,7 +5,15 @@ import { Card } from './cards';
 import { inter } from '@/app/ui/fonts';
 import GamesChart from './games-chart';
 import LatestGames from './latestGames';
+import { fetchCardData } from '../lib/data';
  
+const {
+  numberOfGames,
+  numberOfLeagues,
+  numberOfPlayers,
+  numberOfTournaments
+} = await fetchCardData();
+
 export default async function Page() {
   
 
@@ -18,6 +26,10 @@ export default async function Page() {
         {/* <Card title="Collected" value={totalPaidInvoices} type="collected" /> */}
         {/* <Card title="Pending" value={totalPendingInvoices} type="pending" /> */}
         {/* <Card title="Total Invoices" value={numberOfInvoices} type="invoices" /> */}
+        <Card title="Leagues" value={numberOfLeagues} type="leagues" />
+        <Card title="Tournaments" value={numberOfTournaments} type="tournaments" />
+        <Card title="Total Players" value={numberOfPlayers} type="players" />
+        <Card title="Total Games" value={numberOfGames} type="games" />
         {/* <Card
           title="Total Customers"
           value={numberOfCustomers}
