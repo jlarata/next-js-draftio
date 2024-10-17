@@ -16,6 +16,7 @@ export type Tournament =
     {
         id : string,
         leagueid : string,
+        championid: string | null,
         date: Date,
         name : string
     }

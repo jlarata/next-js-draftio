@@ -73,12 +73,14 @@ const tournaments = [
     {
         id : '00000000-0000-0000-0000-000000000300',
         leagueid : leagues[0].id,
+        championid: null,
         date: '2024-10-06',
         name : 'bburrowdraft'
     },
     {
         id : '00000000-0000-0000-0000-000000000301',
         leagueid : leagues[0].id,
+        championid : null,
         date: '2024-09-23',
         name : 'eldrainedraft'
     }

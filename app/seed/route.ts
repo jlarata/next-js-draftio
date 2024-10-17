@@ -59,6 +59,7 @@ async function seedTournaments() {
      CREATE TABLE IF NOT EXISTS tournaments (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
       leagueid UUID NOT NULL,
+      championid UUID,
       date DATE NOT NULL,
       name VARCHAR(255) NOT NULL
      );
@@ -111,6 +112,19 @@ async function seedGame() {
    return insertedGame;
  }
 
+ async function seedChampions() {
+
+  const updatedChampions = await client.sql`
+    UPDATE tournaments
+    SET championid = '00000000-0000-0000-0000-000000000103'
+    WHERE id = '00000000-0000-0000-0000-000000000300';
+    `;
+
+  console.log('champions setted');
+
+   return updatedChampions;
+ }
+ 
  async function dropTables() { 
     await client.sql`
       drop TABLE IF EXISTS players;
@@ -141,6 +155,7 @@ export async function GET() {
      await seedLeagues();
      await seedTournaments();
      await seedGame();
+     await seedChampions();
      await client.sql`COMMIT`;
      //await dropTables()
      return Response.json({ message: 'Database seeded successfully' });

@@ -1,3 +1,6 @@
+
+############################ tira toda la data para el jugador con id 00000000-0000-0000-0000-000000000101:
+
 SELECT 
 
 (SELECT p.nick FROM players p WHERE p.id = '00000000-0000-0000-0000-000000000101') AS ResultadosPara,
@@ -59,3 +62,11 @@ WHERE g.player1 = '00000000-0000-0000-0000-000000000101'
 OR
 g.player2 = '00000000-0000-0000-0000-000000000101'
 ;
+
+############################ busca champs:
+
+SELECT
+
+t.name AS tournament, TO_CHAR(t.date, 'dd/mm/yyyy') AS date, 
+(SELECT nick from players p WHERE p.id = t.championid) AS CHAMP
+from tournaments t;
