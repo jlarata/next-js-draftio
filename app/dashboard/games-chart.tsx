@@ -1,8 +1,7 @@
 import { generateYAxis, generateLast12Months } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { inter } from '@/app/ui/fonts';
-import { Game, Tournament } from '@/app/lib/definitions';
-import { fetchGames, fetchTournaments } from '../lib/data';
+import { fecthGamesAndTournaments, fetchGames, fetchTournaments } from '../lib/data';
 
 // This component is representational only.
 // For data visualization UI, check out:
@@ -10,8 +9,13 @@ import { fetchGames, fetchTournaments } from '../lib/data';
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 
-const games = await fetchGames();
-const tournaments = await fetchTournaments();
+//const games = await fetchGames();
+//const tournaments = await fetchTournaments();
+
+const {
+  games,
+  tournaments
+} = await fecthGamesAndTournaments();
 
 export default async function GamesChart(){
 

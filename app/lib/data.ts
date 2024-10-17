@@ -1,6 +1,5 @@
 import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore} from 'next/cache';
-import { players, games, tournaments, leagues } from './placeholder-data';
 import { formatCurrency } from './utils';
 import { Game, Tournament } from './definitions';
 import { Revenue, CustomersTableType, LatestGames, LatestInvoice, LatestInvoiceRaw, InvoiceForm, InvoicesTable, CustomerField } from './definitions';
@@ -23,6 +22,33 @@ export async function fetchRevenue() {
     throw new Error('Failed to fetch revenue data.');
   }
 }
+
+export async function fecthGamesAndTournaments() {
+  noStore();
+  try {
+    const gamesDataPromise = await sql<Game>`SELECT * FROM games`;
+    const tournamentsDataPromise = await sql<Tournament>`SELECT * FROM tournaments`;
+  
+    const data = await Promise.all([
+      gamesDataPromise,
+      tournamentsDataPromise,
+    ]);
+
+    const games = data[0].rows;
+    const tournaments = data[1].rows;
+
+    return {
+      games,
+      tournaments
+      }
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch games and tournaments data.');
+  }
+
+}
+
+
 
 export async function fetchGames() {
   noStore();
