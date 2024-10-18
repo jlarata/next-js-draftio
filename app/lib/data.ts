@@ -29,10 +29,15 @@ export async function fecthGamesAndTournaments() {
     const gamesDataPromise = await sql<Game>`SELECT * FROM games`;
     const tournamentsDataPromise = await sql<Tournament>`SELECT * FROM tournaments`;
   
+    console.log('Fetching games and tournaments data...');
+    await new Promise((resolve) => setTimeout(resolve, 6000));
+
     const data = await Promise.all([
       gamesDataPromise,
       tournamentsDataPromise,
     ]);
+
+    console.log('Data fetch completed after 6 seconds.');
 
     const games = data[0].rows;
     const tournaments = data[1].rows;
@@ -174,6 +179,7 @@ export async function fetchLatestInvoices() {
 }
 
 export async function fetchCardData() {
+  noStore();
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate

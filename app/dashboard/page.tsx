@@ -1,10 +1,10 @@
-import { Card } from './cards';
+import { Card } from '../ui/dashboard/cards';
 //import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 //import WinsChart from './wins-chart';
 //import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { inter } from '@/app/ui/fonts';
-import GamesChart from './games-chart';
-import LatestGames from './latestGames';
+import GamesChart from '../ui/dashboard/games-chart';
+import LatestGames from '../ui/dashboard/latestGames';
 import { fetchCardData } from '../lib/data';
  
 const {

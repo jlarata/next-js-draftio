@@ -1,7 +1,7 @@
 import { generateYAxis, generateLast12Months } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { inter } from '@/app/ui/fonts';
-import { fecthGamesAndTournaments, fetchGames, fetchTournaments } from '../lib/data';
+import { fecthGamesAndTournaments, fetchGames, fetchTournaments } from '../../lib/data';
 
 // This component is representational only.
 // For data visualization UI, check out:
