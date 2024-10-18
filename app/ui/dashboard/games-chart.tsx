@@ -3,22 +3,14 @@ import { CalendarIcon } from '@heroicons/react/24/outline';
 import { inter } from '@/app/ui/fonts';
 import { fecthGamesAndTournaments, fetchGames, fetchTournaments } from '../../lib/data';
 
-// This component is representational only.
-// For data visualization UI, check out:
-// https://www.tremor.so/
-// https://www.chartjs.org/
-// https://airbnb.io/visx/
-
-//const games = await fetchGames();
-//const tournaments = await fetchTournaments();
-
-const {
-  games,
-  tournaments
-} = await fecthGamesAndTournaments();
-
 export default async function GamesChart(){
 
+
+  const {
+    games,
+    tournaments
+  } = await fecthGamesAndTournaments();
+  
   const last12Months = generateLast12Months();
   const chartHeight = 350;
   const { yAxisLabels, topLabel} = generateYAxis(games, tournaments, last12Months);
