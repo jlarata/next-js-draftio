@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
-import { PowerIcon } from '@heroicons/react/24/outline';
+import { PowerIcon, PuzzlePieceIcon } from '@heroicons/react/24/outline';
 import D3clogo from '../d3c-logo';
 
 export default function SideNav() {

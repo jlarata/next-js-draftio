@@ -4,7 +4,8 @@ import {
     UserGroupIcon,
     HomeIcon,
     TrophyIcon,
-    TableCellsIcon
+    TableCellsIcon,
+    PuzzlePieceIcon
   } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -19,6 +20,7 @@ import { usePathname } from 'next/navigation';
       href: '/dashboard/players',
       icon: UserGroupIcon,
     },
+    { name: 'Games', href: '/dashboard/games', icon: PuzzlePieceIcon },
     { name: 'Tournaments', href: '/dashboard/tournaments', icon: TrophyIcon },
     { name: 'Leagues', href: '/dashboard/leagues', icon: TableCellsIcon },
   ];
