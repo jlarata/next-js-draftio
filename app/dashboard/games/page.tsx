@@ -25,20 +25,18 @@ solo desde Search )  se arregló el problema */
     page?: string;
   };
 }) { NOOOOOOOOOOFUNCIONÓÓÓ */
+  
 
   export default async function Page({
-  SearchParams,
-}: {
-  SearchParams?: {
+  searchParams,
+  } : {
+  searchParams?: {
     query?: string;
     page?: string;
   };
 }) {
-  
-  
-
-  const query = SearchParams?.query || '';
-  const currentPage = Number(SearchParams?.page) || 1;
+  const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page) || 1;
 
   const totalPages = await fetchInvoicesPages(query);
 
