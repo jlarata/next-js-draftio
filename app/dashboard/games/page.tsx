@@ -17,7 +17,13 @@ y una amenaza de dejar de funcionar : https://nextjs.org/docs/messages/sync-dyna
 increíblemente, todo indica que con solo cambiarle el nombre a la prop que se le está pasando a esta page (creo que
 solo desde Search )  se arregló el problema */
 
-export default async function Page({
+export default async function Page(){
+  return(
+    <div>component broken</div>
+  )
+}
+
+/* export default async function Page({
   searchParams,
 } : {
   searchParams?: {
@@ -47,4 +53,4 @@ export default async function Page({
       </div>
     </div>
   );
-}
+} */
