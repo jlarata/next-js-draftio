@@ -1,8 +1,8 @@
-import { Card } from '../../ui/dashboard/cards';
+import { Card } from '@/app/ui/dashboard/cards';
 import { inter } from '@/app/ui/fonts';
-import GamesChart from '../../ui/dashboard/games-chart';
-import LatestGames from '../../ui/dashboard/latestGames';
-import { fetchCardData } from '../../lib/data';
+import GamesChart from '@/app/ui/dashboard/games-chart';
+import LatestGames from '@/app/ui/dashboard/latestGames';
+import { fetchCardData } from '@/app/lib/data';
  
 const {
   numberOfGames,

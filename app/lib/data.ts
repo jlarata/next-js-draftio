@@ -30,14 +30,14 @@ export async function fecthGamesAndTournaments() {
     const tournamentsDataPromise = await sql<Tournament>`SELECT * FROM tournaments`;
   
     console.log('Fetching games and tournaments data...');
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const data = await Promise.all([
       gamesDataPromise,
       tournamentsDataPromise,
     ]);
 
-    console.log('Data fetch completed after 6 seconds.');
+    console.log('Data fetch completed after 2 seconds.');
 
     const games = data[0].rows;
     const tournaments = data[1].rows;

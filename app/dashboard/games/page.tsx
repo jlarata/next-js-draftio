@@ -9,7 +9,7 @@ import { fetchInvoicesPages } from '@/app/lib/data';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Invoices',
+  title: 'Invoices | Acme Dashboard',
 };
 
 /* aparentemente searchParams es una API Dinámica, que desde Next15 va a ser asíncronas, por lo que venía tirando un error
@@ -17,19 +17,9 @@ y una amenaza de dejar de funcionar : https://nextjs.org/docs/messages/sync-dyna
 increíblemente, todo indica que con solo cambiarle el nombre a la prop que se le está pasando a esta page (creo que
 solo desde Search )  se arregló el problema */
 
-/* export default async function Page({
+export default async function Page({
   searchParams,
-}: {
-  searchParams?: {
-    query?: string;
-    page?: string;
-  };
-}) { NOOOOOOOOOOFUNCIONÓÓÓ */
-  
-
-  export default async function Page({
-  searchParams,
-  } : {
+} : {
   searchParams?: {
     query?: string;
     page?: string;
