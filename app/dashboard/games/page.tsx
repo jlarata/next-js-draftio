@@ -12,17 +12,33 @@ export const metadata: Metadata = {
   title: 'Invoices',
 };
 
-export default async function Page({
+/* aparentemente searchParams es una API Dinámica, que desde Next15 va a ser asíncronas, por lo que venía tirando un error
+y una amenaza de dejar de funcionar : https://nextjs.org/docs/messages/sync-dynamic-apis
+increíblemente, todo indica que con solo cambiarle el nombre a la prop que se le está pasando a esta page (creo que
+solo desde Search )  se arregló el problema */
+
+/* export default async function Page({
   searchParams,
 }: {
   searchParams?: {
     query?: string;
     page?: string;
   };
+}) { */
+
+  export default async function Page({
+  thisSearchParams,
+}: {
+  thisSearchParams?: {
+    query?: string;
+    page?: string;
+  };
 }) {
   
-  const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1;
+  
+
+  const query = thisSearchParams?.query || '';
+  const currentPage = Number(thisSearchParams?.page) || 1;
 
   const totalPages = await fetchInvoicesPages(query);
 
