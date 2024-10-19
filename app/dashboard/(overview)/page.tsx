@@ -4,14 +4,15 @@ import GamesChart from '../../ui/dashboard/games-chart';
 import LatestGames from '../../ui/dashboard/latestGames';
 import { fetchCardData } from '../../lib/data';
  
+const {
+  numberOfGames,
+  numberOfLeagues,
+  numberOfPlayers,
+  numberOfTournaments
+} = await fetchCardData();
+
 export default async function Page() {
   
-  const {
-    numberOfGames,
-    numberOfLeagues,
-    numberOfPlayers,
-    numberOfTournaments
-  } = await fetchCardData();
 
   return (
     <main>
