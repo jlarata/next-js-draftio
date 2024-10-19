@@ -24,12 +24,12 @@ solo desde Search )  se arregló el problema */
     query?: string;
     page?: string;
   };
-}) { */
+}) { NOOOOOOOOOOFUNCIONÓÓÓ */
 
   export default async function Page({
-  thisSearchParams,
+  SearchParams,
 }: {
-  thisSearchParams?: {
+  SearchParams?: {
     query?: string;
     page?: string;
   };
@@ -37,8 +37,8 @@ solo desde Search )  se arregló el problema */
   
   
 
-  const query = thisSearchParams?.query || '';
-  const currentPage = Number(thisSearchParams?.page) || 1;
+  const query = SearchParams?.query || '';
+  const currentPage = Number(SearchParams?.page) || 1;
 
   const totalPages = await fetchInvoicesPages(query);
 
